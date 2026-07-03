@@ -15,9 +15,28 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup {}
-        end,
+        config = true,
+    },
+
+    -- autotag html --
+    {
+        "windwp/nvim-ts-autotag",
+        dependencies = { "nvim-treesitter/nvim-treesitter" }, -- Requires treesitter parsers
+        event = { "BufReadPre", "BufNewFile" }, -- Recommended events if lazy loading
+        opts = {
+            -- Default configurations
+            opts = {
+                enable_close = true,           -- Auto close tags
+                enable_rename = true,          -- Auto rename pairs of tags
+                enable_close_on_slash = false, -- Auto close on trailing </
+            },
+            -- Also override individual filetype configs if needed
+            per_filetype = {
+                ["html"] = {
+                    enable_close = true
+                }
+            }
+        }
     },
 
     -- indent break lines --
@@ -56,10 +75,28 @@ return {
 
     { 'mbbill/undotree' },
     { 'tpope/vim-fugitive' },
+
     -- LSP stuff --
     { 'neovim/nvim-lspconfig' },
     { 'williamboman/mason.nvim' , config = true },
     { 'williamboman/mason-lspconfig.nvim' },
+
+    {
+        'WhoIsSethDaniel/mason-tool-installer',
+        opts = {
+            ensure_installed = {
+                'clangd',
+                'cmakelang',
+                'css-lsp',
+                'glsl_analyzer',
+                'html-lsp',
+                'json-lsp',
+                'luacheck',
+                'lua-language-server',
+            },
+        },
+    },
+
     -- Autocomplete
     { 'hrsh7th/nvim-cmp' },
     { 'hrsh7th/cmp-nvim-lsp' },
