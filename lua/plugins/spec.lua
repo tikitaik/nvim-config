@@ -101,7 +101,7 @@ return {
                 'css-lsp',
                 'glsl_analyzer',
                 'html-lsp',
-                'java-language-server',
+                'jdtls',
                 'json-lsp',
                 'luacheck',
                 'lua-language-server',
