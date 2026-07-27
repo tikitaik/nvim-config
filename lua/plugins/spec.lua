@@ -54,6 +54,7 @@ return {
                     "cpp",
                     "c_sharp",
                     "glsl",
+                    "java",
                     "javascript",
                     "lua",
                     "luadoc",
@@ -65,7 +66,17 @@ return {
             })
 
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "c", "cpp", "c_sharp", "glsl", "javascript", "lua", "markdown", "vim" },
+                pattern = {
+                    "c",
+                    "cpp",
+                    "c_sharp",
+                    "glsl",
+                    "java",
+                    "javascript",
+                    "lua",
+                    "markdown",
+                    "vim"
+                },
                 callback = function()
                     vim.treesitter.start()
                 end,
@@ -90,6 +101,7 @@ return {
                 'css-lsp',
                 'glsl_analyzer',
                 'html-lsp',
+                'java-langauge-server',
                 'json-lsp',
                 'luacheck',
                 'lua-language-server',
