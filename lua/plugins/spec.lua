@@ -105,6 +105,7 @@ return {
                 'json-lsp',
                 'luacheck',
                 'lua-language-server',
+                'roslyn-language-server', -- Microsoft's C# server --
             },
         },
     },
